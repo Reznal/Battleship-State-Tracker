@@ -12,6 +12,11 @@ public class Board
         for (int i = 0; i < BOARD_SIZE; i++)
         {
             _cells[i] = new BoardCell[BOARD_SIZE];
+
+            for (int j = 0; j < BOARD_SIZE; j++)
+            {
+                _cells[i][j] = new BoardCell();
+            }
         }
     }
 

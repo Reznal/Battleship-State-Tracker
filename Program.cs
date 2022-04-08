@@ -9,14 +9,6 @@ namespace Battleship
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
-
-            Console.WriteLine("-------------------------ASDWFASD-----------------");
-
-            Console.WriteLine("-------------------------ASDWFASD-----------------");
-
-            Console.WriteLine("-------------------------ASDWFASD-----------------");
-
-            Console.WriteLine("-------------------------ASDWFASD-----------------");
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

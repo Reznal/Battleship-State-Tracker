@@ -18,11 +18,19 @@ public class Game
         _games = new Dictionary<int, GameSession>();
     }
 
-    public int CreateGame()
+    public int CreateGame(Player player)
     {
-        _games.Add(_nextGameId, new GameSession());
+        _games.Add(_nextGameId, new GameSession(player));
         _nextGameId++;
 
         return _nextGameId - 1;
+    }
+
+    public GameSession GetGameSession( int id)
+    {
+        if (_games.ContainsKey(id))
+            return _games[id];
+
+        return null;
     }
 }

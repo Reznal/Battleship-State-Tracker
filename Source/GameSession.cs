@@ -2,26 +2,31 @@
 public class GameSession
 {
 
-    private Player player1;
-    private Player player2;
+    public Player Player1 { get; private set; }
+    public Player Player2 { get; private set; }
 
-    private byte _playerTurn;
+    private byte _playerTurn; //#TODO
 
-    public GameSession()
+    public GameSession(Player player)
     {
-        player1 = new Player(1);
-        player2 = new Player(2);
+        Player1 = player;
 
-        player1.OnPlayerLoss += Player_OnPlayerLoss;
-        player2.OnPlayerLoss += Player_OnPlayerLoss;
+        //#TODO create joining state to game - using 1 player for now to test
+        Player2 = new Player(2, "Bot");
+
+        Player1.OnPlayerLoss += Player_OnPlayerLoss;
+        Player2.OnPlayerLoss += Player_OnPlayerLoss;
     }
+
+    //Checks if the given id is in this game
+    public bool PlayerExists(int id) => Player1.Id == id || Player2.Id == id;
 
     //Called when a player has lost
     private void Player_OnPlayerLoss(int id)
     {
         //#TODO finish game here
 
-        player1.OnPlayerLoss -= Player_OnPlayerLoss;
-        player2.OnPlayerLoss -= Player_OnPlayerLoss;
+        Player1.OnPlayerLoss -= Player_OnPlayerLoss;
+        Player2.OnPlayerLoss -= Player_OnPlayerLoss;
     }
 }
