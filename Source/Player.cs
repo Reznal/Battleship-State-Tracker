@@ -21,6 +21,11 @@ public class Player
         _ships = new List<Ship>();
     }
 
+    /// <summary>
+    /// Place a ship for player
+    /// Returns result of placement
+    /// </summary>
+    /// <returns></returns>
     public bool PlaceShip(Ship ship, int x, int y)
     {
         if (!_board.PlaceShip(ship, x, y)) return false;
@@ -29,7 +34,17 @@ public class Player
         return true;
     }
 
-    //Checks to see if all players ships are destroyed
+    /// <summary>
+    /// Player has been attacked - return hit or not
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <returns></returns>
+    public bool Attacked(int x, int y) => _board.AttackCell(x, y);
+
+    /// <summary>
+    /// Checks to see if all players ships are destroyed
+    /// </summary>summary>
     public void CheckForLoss()
     {
         foreach (Ship ship in _ships)
