@@ -16,7 +16,9 @@ public class Ship
         _owner = owner;
     }
 
-    //Update data to show the ship has been hit
+    /// <summary>
+    /// Update data to show the ship has been hit
+    /// </summary>
     public void ShipHit()
     {
         _timesHit++;

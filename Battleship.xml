@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Battleship</name>
+    </assembly>
+    <members>
+        <member name="M:AddShipController.Post(AddShipData)">
+            <summary>
+            Adds a ship to the players board
+            </summary>
+            <param name="Data"> test </param>
+            <returns></returns>
+            <response code="200"> Ship placed successfully </response>
+            <response code="400"> Invalid Request </response>
+        </member>
+        <member name="M:AttackController.Post(AttackData)">
+            <summary>
+            Sent by a player to attacked the opponents board
+            </summary>
+            <param name="Data"> test </param>
+            <returns></returns>
+            <response code="200"> Displays hit or miss </response>
+            <response code="400"> Invalid Request </response>
+        </member>
+        <member name="M:CreateBoardController.Post(CreateBoardData)">
+            <summary>
+            Creates a new game session with the requesting player.
+            </summary>
+            <returns></returns>
+            <response code="200"> Returns the new games id </response>
+            <response code="400"> Invalid Request </response>
+        </member>
+        <member name="M:Board.AttackCell(System.Int32,System.Int32)">
+            <summary>
+            Attack a given cell
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Board.HasBeenHit(System.Int32,System.Int32)">
+            <summary>
+            Checks if a cell has been hit
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Board.PlaceShip(Ship,System.Int32,System.Int32)">
+            <summary>
+            Place a ship at the given position
+            </summary>
+            <param name="ship"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Board.CheckIfCellsAreFree(Ship,System.Int32,System.Int32)">
+            <summary>
+            Check if the cells the ship needs are free
+            </summary>
+            <param name="ship"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Board.SetCells(Ship,System.Int32,System.Int32)">
+            <summary>
+            Set cell values for the given ship and position
+            </summary>
+            <param name="ship"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:BoardCell.SetShip(Ship)">
+            <summary>
+            Set ship for cell
+            </summary>
+            <param name="ship"></param>
+        </member>
+        <member name="M:BoardCell.HitCell">
+            <summary>
+            Set cell to be in the hit state
+            Checks if this cell contains a ship
+            </summary>
+        </member>
+        <member name="F:ShipDirection.Horizontal">
+            <summary>
+            Horizontal
+            </summary>
+        </member>
+        <member name="M:Game.CreateGame(Player)">
+            <summary>
+            Create a new game session with the given player
+            </summary>
+            <param name="player"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Game.GetGameSession(System.Int32)">
+            <summary>
+            Get a game session with given id
+            </summary>
+            <param name="id"></param>
+            <returns>GameSession or null if not found</returns>
+        </member>
+        <member name="M:GameSession.PlayerExists(System.Int32)">
+            <summary>
+            Checks if the given id is in this game
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GameSession.Player_OnPlayerLoss(System.Int32)">
+            <summary>
+            Called when a player has lost
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Player.PlaceShip(Ship,System.Int32,System.Int32)">
+            <summary>
+            Place a ship for player
+            Returns result of placement
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Player.Attacked(System.Int32,System.Int32)">
+            <summary>
+            Player has been attacked - return hit or not
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Player.CheckForLoss">
+            <summary>
+            Checks to see if all players ships are destroyed
+            </summary>summary>
+        </member>
+        <member name="M:Ship.ShipHit">
+            <summary>
+            Update data to show the ship has been hit
+            </summary>
+        </member>
+    </members>
+</doc>

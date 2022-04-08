@@ -6,6 +6,13 @@ using System.ComponentModel.DataAnnotations;
 [ApiController]
 public class AddShipController : ControllerBase
 {
+    /// <summary>
+    /// Adds a ship to the players board
+    /// </summary>
+    /// <param name="Data"> test </param>
+    /// <returns></returns>
+    /// <response code="200"> Ship placed successfully </response>
+    /// <response code="400"> Invalid Request </response>
     [HttpPost]
     public IActionResult Post(AddShipData data)
     {

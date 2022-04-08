@@ -18,10 +18,17 @@ public class GameSession
         Player2.OnPlayerLoss += Player_OnPlayerLoss;
     }
 
-    //Checks if the given id is in this game
+    /// <summary>
+    /// Checks if the given id is in this game
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     public bool PlayerExists(int id) => Player1.Id == id || Player2.Id == id;
 
-    //Called when a player has lost
+    /// <summary>
+    /// Called when a player has lost
+    /// </summary>
+    /// <param name="id"></param>
     private void Player_OnPlayerLoss(int id)
     {
         //#TODO finish game here

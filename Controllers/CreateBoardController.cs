@@ -6,6 +6,12 @@ using Newtonsoft.Json;
 [ApiController]
 public class CreateBoardController : ControllerBase
 {
+    /// <summary>
+    /// Creates a new game session with the requesting player.
+    /// </summary>
+    /// <returns></returns>
+    /// <response code="200"> Returns the new games id </response>
+    /// <response code="400"> Invalid Request </response>
     [HttpPost]
     public IActionResult Post(CreateBoardData data)
     {

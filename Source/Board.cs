@@ -20,7 +20,12 @@ public class Board
         }
     }
 
-    //Attack a given cell
+    /// <summary>
+    /// Attack a given cell
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <returns></returns>
     public bool AttackCell(int x, int y)
     {
         if (_cells[x][y].State != CellState.Ship) return false;
@@ -29,10 +34,21 @@ public class Board
         return true;
     }
 
-    //Checks if a cell has been hit
+    /// <summary>
+    /// Checks if a cell has been hit
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <returns></returns>
     public bool HasBeenHit(int x, int y) => _cells[x][y].State == CellState.Hit;
 
-    //Place a ship at the given position
+    /// <summary>
+    /// Place a ship at the given position
+    /// </summary>
+    /// <param name="ship"></param>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <returns></returns>
     public bool PlaceShip(Ship ship, int x, int y)
     {
         //Check that placement position is within board
@@ -47,7 +63,13 @@ public class Board
         return true;
     }
 
-    //Check if the cells the ship needs are free
+    /// <summary>
+    /// Check if the cells the ship needs are free
+    /// </summary>
+    /// <param name="ship"></param>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <returns></returns>
     private bool CheckIfCellsAreFree(Ship ship, int x, int y)
     {
         if (ship.Direction == ShipDirection.Horizontal)
@@ -70,7 +92,12 @@ public class Board
         return true;
     }
 
-    //Set cell values for the given ship and position
+    /// <summary>
+    /// Set cell values for the given ship and position
+    /// </summary>
+    /// <param name="ship"></param>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
     private void SetCells(Ship ship, int x, int y)
     {
         if (ship.Direction == ShipDirection.Horizontal)

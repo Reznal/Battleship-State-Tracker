@@ -18,6 +18,11 @@ public class Game
         _games = new Dictionary<int, GameSession>();
     }
 
+    /// <summary>
+    /// Create a new game session with the given player
+    /// </summary>
+    /// <param name="player"></param>
+    /// <returns></returns>
     public int CreateGame(Player player)
     {
         _games.Add(_nextGameId, new GameSession(player));
@@ -26,6 +31,11 @@ public class Game
         return _nextGameId - 1;
     }
 
+    /// <summary>
+    /// Get a game session with given id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns>GameSession or null if not found</returns>
     public GameSession GetGameSession( int id)
     {
         if (_games.ContainsKey(id))

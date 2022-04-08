@@ -1,11 +1,22 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
+using System.Net.Mime;
 
 [Route("[controller]")]
+[Consumes(MediaTypeNames.Application.Json)]
 [ApiController]
+
 public class AttackController : ControllerBase
 {
+    /// <summary>
+    /// Sent by a player to attacked the opponents board
+    /// </summary>
+    /// <param name="Data"> test </param>
+    /// <returns></returns>
+    /// <response code="200"> Displays hit or miss </response>
+    /// <response code="400"> Invalid Request </response>
     [HttpPost]
     public IActionResult Post(AttackData data)
     {
