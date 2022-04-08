@@ -25,7 +25,7 @@ public class CreateBoardController : ControllerBase
         //Create game and return data
         CreateBoardReturnData returnData = new()
         {
-            GameId = Game.instance.CreateGame(player)
+            GameId = Game.Instance.CreateGame(player)
         };
 
         return Ok(JsonConvert.SerializeObject(returnData));

@@ -8,8 +8,8 @@ public class Player
 
     public int Id { get; private set; }
     public string Username { get; private set; }
+    public Board Board { get; private set; }
 
-    private Board _board;
     private List<Ship> _ships;
 
     public Player(int id, string username)
@@ -17,7 +17,7 @@ public class Player
         Id = id;
         Username = username;
 
-        _board = new Board();
+        Board = new Board();
         _ships = new List<Ship>();
     }
 
@@ -28,7 +28,7 @@ public class Player
     /// <returns></returns>
     public bool PlaceShip(Ship ship, int x, int y)
     {
-        if (!_board.PlaceShip(ship, x, y)) return false;
+        if (!Board.PlaceShip(ship, x, y)) return false;
 
         _ships.Add(ship);
         return true;
@@ -40,20 +40,22 @@ public class Player
     /// <param name="x"></param>
     /// <param name="y"></param>
     /// <returns></returns>
-    public bool Attacked(int x, int y) => _board.AttackCell(x, y);
+    public bool Attacked(int x, int y) => Board.AttackCell(x, y);
 
     /// <summary>
     /// Checks to see if all players ships are destroyed
     /// </summary>summary>
-    public void CheckForLoss()
+    public bool CheckForLoss()
     {
         foreach (Ship ship in _ships)
         {
-            if (ship.IsAlive) return;
+            if (ship.IsAlive) return false;
         }
 
         //Player has lost
         OnPlayerLoss?.Invoke(Id);
+
+        return true;
     }
 
 }

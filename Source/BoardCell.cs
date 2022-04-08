@@ -1,8 +1,8 @@
 
 public class BoardCell
 {
-    public CellState State { get; private set; }
-    private Ship _ship;
+    public CellState State { get; private set; } = CellState.Empty;
+    public Ship Ship { get; private set; }
 
     /// <summary>
     /// Set ship for cell
@@ -10,7 +10,7 @@ public class BoardCell
     /// <param name="ship"></param>
     public void SetShip(Ship ship)
     {
-        _ship = ship;
+        Ship = ship;
         State = CellState.Ship;
     }
 
@@ -23,6 +23,6 @@ public class BoardCell
         if (State != CellState.Ship) return;
 
         State = CellState.Hit;
-        _ship.ShipHit();
+        Ship.ShipHit();
     }
 }

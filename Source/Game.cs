@@ -4,17 +4,17 @@ using System.Collections.Generic;
 
 public class Game
 {
-    public static Game instance;
+    public static Game Instance { get; private set; }
 
-    private Dictionary<int, GameSession> _games;
+    private Dictionary<int, GameSession> _games = new();
     private int _nextGameId;
 
     public Game()
     {
-        if (instance != null)
+        if (Instance != null)
             return;
 
-        instance = this;
+        Instance = this;
         _games = new Dictionary<int, GameSession>();
     }
 

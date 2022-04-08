@@ -28,19 +28,12 @@ public class Board
     /// <returns></returns>
     public bool AttackCell(int x, int y)
     {
+        if (x < 0 || x >= BOARD_SIZE || y < 0 || y >= BOARD_SIZE) return false;
         if (_cells[x][y].State != CellState.Ship) return false;
 
         _cells[x][y].HitCell();
         return true;
     }
-
-    /// <summary>
-    /// Checks if a cell has been hit
-    /// </summary>
-    /// <param name="x"></param>
-    /// <param name="y"></param>
-    /// <returns></returns>
-    public bool HasBeenHit(int x, int y) => _cells[x][y].State == CellState.Hit;
 
     /// <summary>
     /// Place a ship at the given position
@@ -70,7 +63,7 @@ public class Board
     /// <param name="x"></param>
     /// <param name="y"></param>
     /// <returns></returns>
-    private bool CheckIfCellsAreFree(Ship ship, int x, int y)
+    public bool CheckIfCellsAreFree(Ship ship, int x, int y)
     {
         if (ship.Direction == ShipDirection.Horizontal)
         {
@@ -98,7 +91,7 @@ public class Board
     /// <param name="ship"></param>
     /// <param name="x"></param>
     /// <param name="y"></param>
-    private void SetCells(Ship ship, int x, int y)
+    public void SetCells(Ship ship, int x, int y)
     {
         if (ship.Direction == ShipDirection.Horizontal)
         {

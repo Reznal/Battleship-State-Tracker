@@ -24,7 +24,7 @@ public class AttackController : ControllerBase
         if (!ModelState.IsValid)
             return BadRequest();
 
-        GameSession gameSession = Game.instance.GetGameSession(data.GameId);
+        GameSession gameSession = Game.Instance.GetGameSession(data.GameId);
 
         //Return bad request if game doesnt exist
         if (gameSession == null)

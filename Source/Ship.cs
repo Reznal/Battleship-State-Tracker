@@ -1,4 +1,7 @@
 
+using System;
+using System;
+
 public class Ship
 {
     public ShipDirection Direction { get; private set; }
@@ -22,6 +25,7 @@ public class Ship
     public void ShipHit()
     {
         _timesHit++;
+        Console.WriteLine(_timesHit);
 
         if (_timesHit >= Length)
         {

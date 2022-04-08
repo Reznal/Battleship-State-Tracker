@@ -16,11 +16,14 @@ public class AddShipController : ControllerBase
     [HttpPost]
     public IActionResult Post(AddShipData data)
     {
+        if (data == null)
+            return BadRequest();
+
         //Check that request is valid
         if (!ModelState.IsValid)
             return BadRequest();
 
-        GameSession gameSession = Game.instance.GetGameSession(data.GameId);
+        GameSession gameSession = Game.Instance.GetGameSession(data.GameId);
 
         //Return bad request if game doesnt exist
         if (gameSession == null)
