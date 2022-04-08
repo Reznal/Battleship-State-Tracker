@@ -45,21 +45,39 @@ public class AddShipController : ControllerBase
 
 public class AddShipData
 {
+    /// <summary>
+    /// Id for game that player is in
+    /// </summary>
     [Required]
     public int GameId { get; set; }
 
+    /// <summary>
+    /// Id for player
+    /// </summary>
     [Required]
     public int Id { get; set; }
 
+    /// <summary>
+    /// Direction ship is facing. 0 = Horizontal, 1 = Vertical.
+    /// </summary>
     [Required]
     public ShipDirection ShipDirection { get; set; }
 
+    /// <summary>
+    /// Length of ship
+    /// </summary>
     [Required]
     public int ShipLength { get; set; }
 
+    /// <summary>
+    /// X start position of ship
+    /// </summary>
     [Required]
     public int X { get; set; }
 
+    /// <summary>
+    /// Y start position of ship
+    /// </summary>
     [Required]
     public int Y { get; set;  }
 }

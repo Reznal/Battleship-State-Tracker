@@ -13,6 +13,36 @@
             <response code="200"> Ship placed successfully </response>
             <response code="400"> Invalid Request </response>
         </member>
+        <member name="P:AddShipData.GameId">
+            <summary>
+            Id for game that player is in
+            </summary>
+        </member>
+        <member name="P:AddShipData.Id">
+            <summary>
+            Id for player
+            </summary>
+        </member>
+        <member name="P:AddShipData.ShipDirection">
+            <summary>
+            Direction ship is facing. 0 = Horizontal, 1 = Vertical.
+            </summary>
+        </member>
+        <member name="P:AddShipData.ShipLength">
+            <summary>
+            Length of ship
+            </summary>
+        </member>
+        <member name="P:AddShipData.X">
+            <summary>
+            X start position of ship
+            </summary>
+        </member>
+        <member name="P:AddShipData.Y">
+            <summary>
+            Y start position of ship
+            </summary>
+        </member>
         <member name="M:AttackController.Post(AttackData)">
             <summary>
             Sent by a player to attacked the opponents board
@@ -22,6 +52,26 @@
             <response code="200"> Displays hit or miss </response>
             <response code="400"> Invalid Request </response>
         </member>
+        <member name="P:AttackData.GameId">
+            <summary>
+            Id for game that player is in
+            </summary>
+        </member>
+        <member name="P:AttackData.Id">
+            <summary>
+            Id for player
+            </summary>
+        </member>
+        <member name="P:AttackData.X">
+            <summary>
+            X position of attack
+            </summary>
+        </member>
+        <member name="P:AttackData.Y">
+            <summary>
+            Y Position of attack
+            </summary>
+        </member>
         <member name="M:CreateBoardController.Post(CreateBoardData)">
             <summary>
             Creates a new game session with the requesting player.
@@ -29,6 +79,21 @@
             <returns></returns>
             <response code="200"> Returns the new games id </response>
             <response code="400"> Invalid Request </response>
+        </member>
+        <member name="P:CreateBoardData.Id">
+            <summary>
+            Id for sending player
+             </summary>
+        </member>
+        <member name="P:CreateBoardData.Username">
+            <summary>
+            Username for sending player
+            </summary>
+        </member>
+        <member name="P:CreateBoardReturnData.GameId">
+            <summary>
+            Gameid for game session that has been created
+            </summary>
         </member>
         <member name="M:Board.AttackCell(System.Int32,System.Int32)">
             <summary>
@@ -82,11 +147,6 @@
             <summary>
             Set cell to be in the hit state
             Checks if this cell contains a ship
-            </summary>
-        </member>
-        <member name="F:ShipDirection.Horizontal">
-            <summary>
-            Horizontal
             </summary>
         </member>
         <member name="M:Game.CreateGame(Player)">

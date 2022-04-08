@@ -46,15 +46,27 @@ public class AttackController : ControllerBase
 
 public class AttackData
 {
+    /// <summary>
+    /// Id for game that player is in
+    /// </summary>
     [Required]
     public int GameId { get; set; }
 
+    /// <summary>
+    /// Id for player
+    /// </summary>
     [Required]
     public int Id { get; set; }
 
+    /// <summary>
+    /// X position of attack
+    /// </summary>
     [Required]
     public int X { get; set; }
 
+    /// <summary>
+    /// Y Position of attack
+    /// </summary>
     [Required]
     public int Y { get; set;  }
 }

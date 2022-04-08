@@ -34,14 +34,23 @@ public class CreateBoardController : ControllerBase
 
 public class CreateBoardData
 {
+    ///<summary>
+    ///Id for sending player
+    /// </summary>
     [Required]
     public int Id { get; set; }
 
+    /// <summary>
+    /// Username for sending player
+    /// </summary>
     [Required]
     public string Username { get; set; }
 }
 
 public class CreateBoardReturnData
 {
+    /// <summary>
+    /// Gameid for game session that has been created
+    /// </summary>
     public int GameId { get; set; }
 }
