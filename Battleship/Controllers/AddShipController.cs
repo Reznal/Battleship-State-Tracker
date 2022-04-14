@@ -40,9 +40,17 @@ public class AddShipController : ControllerBase
 
         //If player can place ship, return ok
         if (player.PlaceShip(ship, data.X, data.Y))
+        {
+            //#TODO - remove in future once two players are joining
+            Player opponent = data.Id == gameSession.Player1.Id ? gameSession.Player2 : gameSession.Player1;
+            opponent.PlaceShip(ship, data.X, data.Y);
+
             return Ok();
+        }
         else //Return bad request
+        {
             return BadRequest("Unable to place ship");
+        }
     }
 }
 

@@ -12,7 +12,7 @@ public class GameSession
         Player1 = player;
 
         //#TODO create joining state to game - using 1 player for now to test
-        Player2 = new Player(2, "Bot");
+        Player2 = new Player(player.Id + 1, "Bot");
 
         Player1.OnPlayerLoss += Player_OnPlayerLoss;
         Player2.OnPlayerLoss += Player_OnPlayerLoss;

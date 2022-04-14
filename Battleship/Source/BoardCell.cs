@@ -2,6 +2,7 @@
 public class BoardCell
 {
     public CellState State { get; private set; } = CellState.Empty;
+
     public Ship Ship { get; private set; }
 
     /// <summary>
